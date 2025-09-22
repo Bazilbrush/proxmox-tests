@@ -69,10 +69,11 @@ jobs:
         run: |
           sudo tailscale up --authkey=${{ steps.get-key.outputs.auth_key }}
 
-      - name: Debug tailscale status
-        run: tailscale status
+      # - name: Debug tailscale status
+      #   run: tailscale status
 
       - name: Run your tasks
         run: |
           # Example: connect to a private service inside your tailnet
-          curl --socks5 localhost:1055 -v http://${{ secrets.SERVICE }}/
+          # curl --socks5 localhost:1055 -v http://${{ secrets.SERVICE }}/
+          curl -v http://${{ secrets.SERVICE }}/
