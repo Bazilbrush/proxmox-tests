@@ -25,5 +25,5 @@ jobs:
 
       - name: encrypt TF dir
         run: |
-            curl 'https://api.tailscale.com/api/v2/tailnet/{tailnet}/devices' \
+            curl 'https://api.tailscale.com/api/v2/tailnet/${{ secrets.TAILNET }}/devices' \
             --header 'Authorization: Bearer ${{ secrets.TS_TOKEN }}'
