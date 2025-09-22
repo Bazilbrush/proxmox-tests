@@ -1,0 +1,29 @@
+name: test connecting to proxmox
+run-name: ${{ github.actor }} is testing proxmox
+on: 
+  workflow_dispatch:
+    # inputs:
+      #     tfpath:
+      #         description: 'TF File Path'     
+      #         required: false
+      #         default: 'infra'
+    # secrets:
+    #   ARM_CLIENT_ID:
+    #       description: 'service principal id'
+    #       required: false
+            
+permissions:
+    id-token: write
+    contents: read
+
+jobs:
+  register_to_tailscale:
+    name: register tailscale
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.5.0
+
+      - name: encrypt TF dir
+        run: |
+            curl 'https://api.tailscale.com/api/v2/tailnet/{tailnet}/devices' \
+            --header 'Authorization: Bearer ${{ secrets.TS_TOKEN }}'
