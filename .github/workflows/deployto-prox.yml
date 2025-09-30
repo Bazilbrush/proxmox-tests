@@ -81,10 +81,10 @@ jobs:
             run: |
               sudo tailscale up --authkey=${{ steps.get-key.outputs.auth_key }}
 
-    secrets:
-      PM_PASSWORD: ${{ secrets.pm_password }}
-      TS_TOKEN: ${{ secrets.TS_TOKEN }}
-      TAILNET: ${{ secrets.TAILNET }}
+    secrets: inherit
+      # PM_PASSWORD: ${{ secrets.pm_password }}
+      # TS_TOKEN: ${{ secrets.TS_TOKEN }}
+      # TAILNET: ${{ secrets.TAILNET }}
 
 
         
