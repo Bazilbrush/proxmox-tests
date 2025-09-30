@@ -35,10 +35,6 @@ jobs:
         AWS_REGION: "eu-west-1"
         AWS_OIDC_ROLE: 'arn:aws:iam::520686339686:role/github-oidc'
         AWS_OIDC_SESSION_NAME: 'github-test'
-        tfvars: |
-          {
-            "TF_VAR_pm_password": "${{ secrets.pm_password }}"
-          }
         pre_tasks: |
           steps:
             - name: Get ephemeral Tailscale auth key
@@ -81,7 +77,11 @@ jobs:
             run: |
               sudo tailscale up --authkey=${{ steps.get-key.outputs.auth_key }}
 
-    secrets: inherit
+    secrets: 
+      tfvars: |
+          {
+            "TF_VAR_pm_password": "${{ secrets.pm_password }}"
+          }
       # PM_PASSWORD: ${{ secrets.pm_password }}
       # TS_TOKEN: ${{ secrets.TS_TOKEN }}
       # TAILNET: ${{ secrets.TAILNET }}
