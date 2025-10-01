@@ -27,7 +27,7 @@ jobs:
     if: ${{ always() }}
     needs: terraform-validate
     with:
-        tfpath: infra-aws
+        tfpath: infra
         backend-platform: aws
         TF_ENV: integration
         AWS_BUCKET: jackbazbackend
