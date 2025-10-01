@@ -19,7 +19,7 @@ terraform {
 
 provider "proxmox" {
   pm_api_url = "https://pve-wolfe.tailae395a.ts.net:8006/api2/json"
-  pm_tls_unsecure = true
+  pm_tls_insecure = true
   pm_user = "root@pam"
   pm_password = var.pm_password
 }
