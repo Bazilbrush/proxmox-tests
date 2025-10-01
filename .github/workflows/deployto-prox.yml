@@ -2,11 +2,11 @@ name: test connecting to proxmox
 run-name: ${{ github.actor }} is testing proxmox
 on: 
   workflow_dispatch:
-    # inputs:
-      #     tfpath:
-      #         description: 'TF File Path'     
-      #         required: false
-      #         default: 'infra'
+    inputs:
+          tfpath:
+              description: 'TF File Path'     
+              required: false
+              default: 'infra'
     # secrets:
     #   ARM_CLIENT_ID:
     #       description: 'service principal id'
