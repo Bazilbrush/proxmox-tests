@@ -36,11 +36,7 @@ jobs:
         AWS_OIDC_ROLE: 'arn:aws:iam::520686339686:role/github-oidc'
         AWS_OIDC_SESSION_NAME: 'github-test'
         tailscale: true
-        post_tasks: |
-          - name: Debug tailscale status
-            if: always()
-            run: tailscale status
-
+        
         # pre_tasks: |
         #   steps:
         #     - name: Get ephemeral Tailscale auth key
