@@ -91,7 +91,9 @@ jobs:
       - name: Terraform Plan
         working-directory: ${{ github.event.inputs.tfpath }}
         env:
-          TF_VAR_pm_password: ${{ secrets.PM_PASSWORD }}
+          # TF_VAR_pm_password: ${{ secrets.PM_PASSWORD }}
+          PM_API_TOKEN_ID: 'terraform@pve!mytoken'
+          PM_API_TOKEN_SECRET: ${{ secrets.PVE_TOKEN }}
         run: |
           echo `pwd`
           echo "tfpath ${{ github.event.inputs.tfpath }}"
